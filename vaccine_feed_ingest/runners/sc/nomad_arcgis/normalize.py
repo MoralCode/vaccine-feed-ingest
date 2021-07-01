@@ -95,10 +95,7 @@ def _get_contacts(site: dict) -> Optional[List[schema.Contact]]:
 # Using "Appointments" field though unclear whether this should be interpreted as
 # "An appointment is required" or "An appointment is available"
 def _get_activated(site: dict) -> bool:
-    if site["attributes"]["Activated1"] == "No":
-        return False
-    else:
-        return True
+    return site["attributes"]["Activated1"] != "No"
 
 
 def _get_inventory(site: dict) -> Optional[List[schema.Vaccine]]:
